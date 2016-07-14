@@ -3,7 +3,9 @@
 import inspect
 import os
 import json
-class config :
+
+
+class Config :
 
     __jsonObj={};
     @staticmethod
@@ -14,25 +16,25 @@ class config :
 
     @staticmethod
     def __parseJson():
-        jsonfile=file(config.__getConfigFile(), mode="r")
-        config.__jsonObj=json.load(jsonfile,"UTF-8")
+        jsonfile=file(Config.__getConfigFile(), mode="r")
+        Config.__jsonObj=json.load(jsonfile,"UTF-8")
 
     @staticmethod
     def getDir():
-        if not config.__jsonObj.has_key("dir"):
-            config.__parseJson()
+        if not Config.__jsonObj.has_key("dir"):
+            Config.__parseJson()
 
-        return config.__jsonObj['dir']
+        return Config.__jsonObj['dir']
 
     @staticmethod
     def getGit():
-        if not config.__jsonObj.has_key("git"):
-            config.__parseJson()
+        if not Config.__jsonObj.has_key("git"):
+            Config.__parseJson()
 
-        return config.__jsonObj['git']
+        return Config.__jsonObj['git']
 
 
 
 if __name__ == '__main__':
-    print  config.getDir()
-    print config.getGit()
+    print  Config.getDir()
+    print Config.getGit()

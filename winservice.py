@@ -3,7 +3,7 @@
 import win32serviceutil
 import win32service
 import win32event
-from config import config
+from config import Config
 
 class PythonService(win32serviceutil.ServiceFramework):
     """
@@ -54,7 +54,7 @@ class PythonService(win32serviceutil.ServiceFramework):
     def SvcDoRun(self):
         import time
         while self.isAlive:
-
+            # Do something
             time.sleep(10*60)
 
 
